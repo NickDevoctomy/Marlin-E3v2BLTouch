@@ -894,6 +894,16 @@
 //#define NOZZLE_AS_PROBE
 
 /**
+ * Auto-leveling needs preheating
+ */
+#define AUTOLEVEL_NEEDS_PREHEATING
+
+#if ENABLED(AUTOLEVEL_NEEDS_PREHEATING)
+  #define AUTOLEVEL_PREHEAT_NOZZLE_TEMP 120
+  #define AUTOLEVEL_PREHEAT_BED_TEMP 50
+#endif
+
+/**
  * Z Servo Probe, such as an endstop switch on a rotating arm.
  */
 //#define Z_PROBE_SERVO_NR 0       // Defaults to SERVO 0 connector.
@@ -1126,8 +1136,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 220
-#define Y_BED_SIZE 220
+#define X_BED_SIZE 235
+#define Y_BED_SIZE 235
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1507,8 +1517,8 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 185
-#define PREHEAT_1_TEMP_BED     45
+#define PREHEAT_1_TEMP_HOTEND 180
+#define PREHEAT_1_TEMP_BED     65
 #define PREHEAT_1_FAN_SPEED   255 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
