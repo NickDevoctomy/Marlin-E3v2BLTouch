@@ -1305,7 +1305,6 @@ void HMI_Move_Z() {
   }
 
   void HMI_Move_E_Refuel() {
-    static float last_E_scale = 0;
     ENCODER_DiffState encoder_diffState = Encoder_ReceiveAnalyze();
     if (encoder_diffState != ENCODER_DIFF_NO) {
       if (Apply_Encoder(encoder_diffState, HMI_ValueStruct.Move_E_scale)) {
@@ -3425,7 +3424,6 @@ void HMI_Refuel(void){
   #endif
 
   char gcode_string[80];
-  static float last_E_scale = 0;
   if (encoder_diffState == ENCODER_DIFF_CW) {
     if (select_refuel.inc(4)) Move_Highlight(1, select_refuel.now);
   }
