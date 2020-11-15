@@ -181,7 +181,7 @@ G29_TYPE GcodeSuite::G29() {
     if (DISABLED(PROBE_MANUALLY) && seenQ) G29_RETURN(false);
   #endif
 
-    #if ENABLED(AUTOLEVEL_NEEDS_PREHEATING)
+  #if ENABLED(AUTOLEVEL_NEEDS_PREHEATING)
     {
       uint16_t hotendTemperature = AUTOLEVEL_PREHEAT_NOZZLE_TEMP;
       uint16_t bedTemperature = AUTOLEVEL_PREHEAT_BED_TEMP;
