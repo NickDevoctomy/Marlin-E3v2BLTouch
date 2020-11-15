@@ -182,18 +182,16 @@ G29_TYPE GcodeSuite::G29() {
   #endif
 
   #if ENABLED(AUTOLEVEL_NEEDS_PREHEATING)
-    {
-      uint16_t hotendTemperature = AUTOLEVEL_PREHEAT_NOZZLE_TEMP;
-      uint16_t bedTemperature = AUTOLEVEL_PREHEAT_BED_TEMP;
-      SERIAL_ECHOLNPAIR("Preheating hot-end to ", hotendTemperature);
-      SERIAL_ECHOLNPAIR("Preheating bed to ", bedTemperature);
+    uint16_t hotendTemperature = AUTOLEVEL_PREHEAT_NOZZLE_TEMP;
+    uint16_t bedTemperature = AUTOLEVEL_PREHEAT_BED_TEMP;
+    SERIAL_ECHOLNPAIR("Preheating hot-end to ", hotendTemperature);
+    SERIAL_ECHOLNPAIR("Preheating bed to ", bedTemperature);
 
-      thermalManager.setTargetHotend(hotendTemperature, 0);
-      thermalManager.setTargetBed(bedTemperature);
+    thermalManager.setTargetHotend(hotendTemperature, 0);
+    thermalManager.setTargetBed(bedTemperature);
 
-      thermalManager.wait_for_hotend(0);
-      thermalManager.wait_for_bed_heating();
-    }
+    thermalManager.wait_for_hotend(0);
+    thermalManager.wait_for_bed_heating();
   #endif
 
   const bool seenA = TERN0(PROBE_MANUALLY, parser.seen('A')),
